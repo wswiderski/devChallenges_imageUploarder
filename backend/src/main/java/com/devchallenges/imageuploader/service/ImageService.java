@@ -26,6 +26,7 @@ public class ImageService {
         return image.getImageKey();
     }
 
+    @Transactional
     public byte[] getImageByKey(String key) {
         final Optional<Image> image = imageRepository.findByImageKey(key);
         return image.map(Image::getImageData).orElse(null);
